@@ -11,20 +11,27 @@ public class GuardarContacto {
 	private static final Logger log = LogManager.getLogger(GuardarContacto.class);
 	
 	
-	public static void guardar() throws IOException {
+	public static void guardar(String telefono){
 		FileWriter escritor = null; //escribir el archivo
 		
 		try{
-			escritor = new FileWriter("contactos.txt", true);
+			escritor = new FileWriter("contactos.txt");
 			
 			escritor.write("nombre: Maria\n");
 			escritor.write("apellido: Gomez\n");
-			escritor.write("telefono: 0981234567\n");
+			escritor.write("telefono: " + telefono + "\n");
+			
+			log.info("Se guardo exitosamente");
 				
 			}catch(IOException e) {
 				log.error("Ocurrio un error: ", e);
 			}finally {
-				escritor.close();
+				try {if (escritor != null) {
+					escritor.close();
+					log.info("Se cerro el escritor exitosamente");
+				}} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 	}

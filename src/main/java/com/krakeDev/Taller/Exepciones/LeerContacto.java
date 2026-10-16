@@ -18,19 +18,24 @@ public class LeerContacto {
 		try {
 			lectorArchivo = new FileReader("contactos.txt");
 			lector = new BufferedReader(lectorArchivo);
-			//readLine lee linea por linea
-			System.out.println(lector.readLine());
 			
+			for(int i=0 ; i<6 ; i++) {
+				//readLine lee linea por linea
+				System.out.println(lector.readLine());
+			}
+						
 			log.info("Se pudo leer exitosamente");
 			
 		}catch(FileNotFoundException e) {
-			log.error("Ocurrio un error al buscar el archivo ", e);
+			log.error("Ocurrio un error al enconrtar el archivo ", e);
 		}catch(IOException e) {
-			log.error("Ocurrio un error al encontrar el archivo ", e);
+			log.error("Ocurrio un error al leer el archivo ", e);
 		}finally {
-			try {
+			try { if(lectorArchivo != null) {
 				lectorArchivo.close();
+			}if(lector != null) {
 				lector.close();
+				}
 				log.info("Se cerro exitosamente");
 			}catch(IOException e) {
 				e.printStackTrace();
