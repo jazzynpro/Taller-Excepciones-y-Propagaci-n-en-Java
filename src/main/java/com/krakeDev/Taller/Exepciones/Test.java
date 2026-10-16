@@ -11,10 +11,11 @@ public class Test {
 	public static void main(String[] args) {
 		try {
 			GuardarContacto.guardar();
+			log.info("Se guardo un archivo");
 		} catch (IOException e) {
 			log.error("Ocurrio un error: ", e);
 		}
-
+System.out.println("El programa se sigue ejecutando");
 	}
 
 }

@@ -1,6 +1,4 @@
 nombre: Maria
 apellido: Gomez
 telefono: 0981234567
-nombre: Maria
-apellido: Gomez
-telefono: 0981234567
+
